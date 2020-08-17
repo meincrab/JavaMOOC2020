@@ -9,6 +9,16 @@ public class Esineet {
 
         ArrayList<Esine> esineet = new ArrayList<>();
         Scanner lukija = new Scanner(System.in);
-
+        while (true) {
+            System.out.print("Nimi ");
+            String nimi = lukija.nextLine();
+            if (nimi.isEmpty()) {
+                break;
+            }
+            esineet.add(new Esine(nimi));
+        }
+        for(Esine esine : esineet){
+            System.out.println(esine.toString());
+        }
     }
 }

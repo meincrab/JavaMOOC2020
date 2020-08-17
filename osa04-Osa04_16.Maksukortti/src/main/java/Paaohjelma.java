@@ -2,10 +2,21 @@
 public class Paaohjelma {
 
     public static void main(String[] args) {
-        // Scanner lukija = new Scanner(System.in);
+        Maksukortti pekanKortti = new Maksukortti(20);
+        Maksukortti matinKortti = new Maksukortti(30);
+        pekanKortti.syoMaukkaasti();
+        matinKortti.syoEdullisesti();
+        System.out.println("Pekka "+ pekanKortti.toString());
+        System.out.println("Matti "+ matinKortti.toString());
+        pekanKortti.lataaRahaa(20.0);
+        matinKortti.syoMaukkaasti();
+        System.out.println("Pekka "+ pekanKortti.toString());
+        System.out.println("Matti "+ matinKortti.toString());
+        pekanKortti.syoEdullisesti();
+        pekanKortti.syoEdullisesti();
+        matinKortti.lataaRahaa(50);
+        System.out.println("Pekka "+ pekanKortti.toString());
+        System.out.println("Matti "+ matinKortti.toString());
         
-        // Tee tänne koodia jolla testaat että Maksukortti toimii halutulla tavalla
-        // muista kuitenkin pyyhkiä ylimääräinen koodi pois tehtävän viimeisessä osassa!
-
     }
 }
