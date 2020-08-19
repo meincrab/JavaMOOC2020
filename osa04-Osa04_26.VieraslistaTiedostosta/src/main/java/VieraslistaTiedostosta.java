@@ -13,6 +13,15 @@ public class VieraslistaTiedostosta {
 
         ArrayList<String> lista = new ArrayList<>();
         // toteuta tiedoston lukeminen tässä.
+        try ( Scanner tiedostonLukija = new Scanner(Paths.get(tiedosto))) {
+
+            // luetaan kaikki tiedoston rivit
+            while (tiedostonLukija.hasNextLine()) {
+                lista.add(tiedostonLukija.nextLine());
+            }
+        } catch (Exception e) {
+            System.out.println("Virhe: " + e.getMessage());
+        }
         System.out.println("");
 
         System.out.println("Syötä nimiä, tyhjä rivi lopettaa.");

@@ -24,6 +24,20 @@ public class HenkilotTiedostosta {
         ArrayList<Henkilo> henkilot = new ArrayList<>();
 
         // toteuta henkilöiden lukeminen ja luominen tänne
+        try ( Scanner lukija = new Scanner(Paths.get(tiedosto))) {
+
+            while (lukija.hasNextLine()) {
+                String rivi = lukija.nextLine();
+
+                String[] palat = rivi.split(",");
+                String nimi = palat[0];
+                int ika = Integer.valueOf(palat[1]);
+
+                henkilot.add(new Henkilo(nimi, ika));
+            }
+        } catch (Exception e) {
+            System.out.println("Virhe!");
+        }
         return henkilot;
 
     }
