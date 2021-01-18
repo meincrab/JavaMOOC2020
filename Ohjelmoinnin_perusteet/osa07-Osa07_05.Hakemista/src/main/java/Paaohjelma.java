@@ -33,7 +33,7 @@ public class Paaohjelma {
         System.out.println("");
         System.out.println("Haetaan binäärihaulla:");
         alku = System.currentTimeMillis();
-        int binaarihakuId = perakkaishaku(kirjat, haettava);
+        int binaarihakuId = binaarihaku(kirjat, haettava);
         System.out.println("Haku kesti " + (System.currentTimeMillis() - alku) + " millisekuntia.");
         if (binaarihakuId < 0) {
             System.out.println("Ei löytynyt.");
@@ -44,10 +44,29 @@ public class Paaohjelma {
     }
 
     public static int perakkaishaku(ArrayList<Kirja> kirjat, int haettavaId) {
+        for(int i = 0; i < kirjat.size(); i++){
+            if(kirjat.get(i).getId() == haettavaId) {
+                return i;
+            }
+        }
         return -1;
     }
 
     public static int binaarihaku(ArrayList<Kirja> kirjat, long haettavaId) {
+        int alku = 0;
+        int loppu = kirjat.size() -1;
+        while(alku<= loppu) {
+            int keski = (loppu + alku) / 2;
+            if(kirjat.get(keski).getId() == haettavaId){
+                return keski;
+            }
+            if (kirjat.get(keski).getId() < haettavaId){
+                alku = keski + 1;
+            }
+            if (kirjat.get(keski).getId() > haettavaId){
+                loppu = keski - 1;
+            }
+        }
         return -1;
     }
 }
