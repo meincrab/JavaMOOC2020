@@ -5,8 +5,8 @@ public class Paaohjelma {
 
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
-
-        // Tee sovelluksesi tänne -- kannattaa harkita sovelluksen pilkkomista
-        // useampaan luokkaan.
+        ArvosanaTilastot tilastot = new ArvosanaTilastot();
+        UserInterface ui = new UserInterface(lukija, tilastot);
+        ui.start();
     }
 }
