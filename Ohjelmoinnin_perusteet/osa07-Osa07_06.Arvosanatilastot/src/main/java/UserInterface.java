@@ -17,6 +17,13 @@ public class UserInterface {
    public double naytaLapKeskiarvo(){
        return this.tilastot.lapiKeskiArvo();
    }
+   public double naytaProsentti(){
+       return this.tilastot.lapiProsentti();
+   }
+   public void arvosanaJakauma(){
+       this.tilastot.arvJakauma();
+   }
+   
    public void start() {
        System.out.println("Syötä yhteispisteet, -1 lopettaa:");
        while(true){
@@ -28,8 +35,17 @@ public class UserInterface {
                lisaaArvo(point);
            }
        }
-       System.out.println("Point average(all): " + naytaKeskiarvo());
-       System.out.println("Pisteiden keskiarvo (hyväksytyt): " + naytaLapKeskiarvo());
+       System.out.println("Pisteiden keskiarvo (kaikki): " + naytaKeskiarvo());
+       if(Double.isNaN(naytaLapKeskiarvo())){
+           System.out.println("Pisteiden keskiarvo (hyväksytyt): -");
+           System.out.println("Hyväksymisprosentti: 0.0");
+           arvosanaJakauma();
+       }
+       else{
+           System.out.println("Pisteiden keskiarvo (hyväksytyt): " + naytaLapKeskiarvo());
+           System.out.println("Hyväksymisprosentti: " + naytaProsentti());
+           arvosanaJakauma();
+       }
    }
    
 }
