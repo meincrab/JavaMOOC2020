@@ -1,7 +1,5 @@
 
-
 import java.util.Scanner;
-
 
 public class Paaohjelma {
 
@@ -12,35 +10,54 @@ public class Paaohjelma {
 
         Scanner lukija = new Scanner(System.in);
         LintuBongari lintuBongari = new LintuBongari();
-        
-        while(true){
+
+        while (true) {
+            System.out.print("? ");
             String kommento = lukija.nextLine();
-            if(kommento.equalsIgnoreCase("lopeta")){
+            if (kommento.equalsIgnoreCase("lopeta")) {
                 break;
-            }
-            else if(kommento.equalsIgnoreCase("lisaa")){
+            } else if (kommento.equalsIgnoreCase("lisaa")) {
                 uusLintu(lukija, lintuBongari);
-            }
-            else if(kommento.equalsIgnoreCase("nayta")){
+            } else if (kommento.equalsIgnoreCase("nayta")) {
+                System.out.println("Lintu?");
+                String lintu = lukija.nextLine();
+                naytaLintu(lintu, lintuBongari);
+            } else if (kommento.equalsIgnoreCase("tilasto")) {
                 lintuBongari.naytaKaikki();
+            } else if (kommento.equalsIgnoreCase("havainto")) {
+                System.out.print("Mikä havaittu? ");
+                String lintu = lukija.nextLine();
+                lisaaTilastoon(lintu, lintuBongari);
             }
-            else if(kommento.equalsIgnoreCase("tilasto")){
-                break;
-            }
-            
         }
     }
-    
-    private static void lisaaTilastoon(Scanner lukija, LintuBongari lintuBongari){
-        
+
+    private static void naytaLintu(String lintuEsim, LintuBongari lintuBongari) {
+        for (Lintu lintu : lintuBongari.getLinnut()) {
+            if (lintu.getNimi().equalsIgnoreCase(lintuEsim) || lintu.getLatinaNimi().equals(lintu)) {
+                System.out.println(lintu);
+                return;
+            }
+        }
+        System.out.println("Ei ole lintu!");
     }
-    private static void uusLintu(Scanner lukija, LintuBongari lintuBongari){
-        System.out.println("Nimi:");
+
+    private static void lisaaTilastoon(String lintuEsim, LintuBongari lintuBongari) {
+        for (Lintu lintu : lintuBongari.getLinnut()) {
+            if (lintu.getNimi().equalsIgnoreCase(lintuEsim) || lintu.getLatinaNimi().equals(lintu)) {
+                lintu.increaseKerrat();
+                return;
+            }
+        }
+        System.out.println("Ei ole lintu!");
+    }
+
+    private static void uusLintu(Scanner lukija, LintuBongari lintuBongari) {
+        System.out.print("Nimi: ");
         String nimi = lukija.nextLine();
-        System.out.println("Latinakielinen nimi:");
+        System.out.print("Latinakielinen nimi: ");
         String latinaNimi = lukija.nextLine();
         lintuBongari.uusLintu(nimi, latinaNimi);
     }
-    
 
 }

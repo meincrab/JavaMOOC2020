@@ -30,7 +30,7 @@ public class Lintu {
     
     @Override
     public String toString(){
-        return this.nimi + "(" + this.latinaNimi + "): " + this.kerrat + "havaintoa";
+        return this.nimi + "(" + this.latinaNimi + "): " + this.kerrat + " havaintoa";
     }
     
 }
