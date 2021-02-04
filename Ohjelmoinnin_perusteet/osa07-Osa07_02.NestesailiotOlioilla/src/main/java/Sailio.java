@@ -9,20 +9,26 @@
  * @author meincrab
  */
 public class Sailio {
-    
-    public int sisalto(){
-        
+
+    private int ekaSailio;
+
+    public int sisalto() {
+        return ekaSailio;
     }
-    public int lisaa(int maara){
-        
+
+    public void lisaa(int maara) {
+        if (maara >= 0) {
+            ekaSailio = (ekaSailio + maara > 100) ? 100 : ekaSailio + maara;
+        }
     }
-    public void poista(int maara){
-        
+
+    public void poista(int maara) {
+        if (maara >= 0) {
+            ekaSailio = (ekaSailio - maara < 0) ? 0 : ekaSailio - maara;
+        }
     }
-    public String toString(){
-        
-    }
-    public String toString(){
-        
+
+    public String toString() {
+        return ekaSailio + "/100";
     }
 }
