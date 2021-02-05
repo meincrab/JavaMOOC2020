@@ -4,15 +4,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
         Tehtavalista lista = new Tehtavalista();
-        lista.lisaa("lue kurssimateriaalia");
-        lista.lisaa("katso uusin fool us");
-        lista.lisaa("ota rennosti");
-
-        lista.tulosta();
-        lista.poista(2);
-
-        System.out.println();
-        lista.tulosta();
+        Kayttoliittyma uusiKayttoliittyma = new Kayttoliittyma(lista, lukija);
+        uusiKayttoliittyma.kaynnista();
     }
 }
