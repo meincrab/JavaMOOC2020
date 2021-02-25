@@ -19,6 +19,6 @@ public class Henkilo {
     
     @Override
     public String toString() {
-        return nimi + "\n   " + osoite;
+        return nimi + "\n  " + osoite;
     }
 }

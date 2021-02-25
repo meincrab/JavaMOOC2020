@@ -11,11 +11,20 @@
 public class Opiskelija extends Henkilo {
     private int opintopisteita;
     
-    public Opiskelija(){
-    this.opintopisteita = 0;
+    public Opiskelija(String nimi, String osoite){
+        super(nimi, osoite);
+        this.opintopisteita = 0;
     }
     public void opiskele(){
         opintopisteita +=1;
-        System.out.println("opintopisteitä" + opintopisteita);
     }
+    public int opintopisteita(){
+        return opintopisteita;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n  " + "opintopisteitä " + opintopisteita;
+    }
+    
 }
