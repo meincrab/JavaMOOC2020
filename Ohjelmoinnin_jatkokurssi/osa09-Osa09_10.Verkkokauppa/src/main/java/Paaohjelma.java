@@ -1,14 +1,24 @@
 
+import java.util.Set;
+
 public class Paaohjelma {
 
     public static void main(String[] args) {
-        Varasto varasto = new Varasto();
-        varasto.lisaaTuote("maito", 3, 10);
-        varasto.lisaaTuote("kahvi", 5, 7);
+        Ostoskori kori = new Ostoskori();
+        kori.lisaa("maito", 3);
+        kori.tulosta();
+        System.out.println("korin hinta: " + kori.hinta() + "\n");
 
-        System.out.println("hinnat:");
-        System.out.println("maito: " + varasto.hinta("maito"));
-        System.out.println("kahvi: " + varasto.hinta("kahvi"));
-        System.out.println("sokeri: " + varasto.hinta("sokeri"));
+        kori.lisaa("piima", 2);
+        kori.tulosta();
+        System.out.println("korin hinta: " + kori.hinta() + "\n");
+
+        kori.lisaa("maito", 3);
+        kori.tulosta();
+        System.out.println("korin hinta: " + kori.hinta() + "\n");
+
+        kori.lisaa("maito", 3);
+        kori.tulosta();
+        System.out.println("korin hinta: " + kori.hinta() + "\n");
     }
 }
