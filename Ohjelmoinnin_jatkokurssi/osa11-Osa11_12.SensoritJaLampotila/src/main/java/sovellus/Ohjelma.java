@@ -4,9 +4,6 @@ public class Ohjelma {
 
     public static void main(String[] args) {
         Sensori kumpula = new Lampomittari();
-        kumpula.paalle();
-        System.out.println("lämpötila Kumpulassa " + kumpula.mittaa() + " astetta");
-
         Sensori kaisaniemi = new Lampomittari();
         Sensori helsinkiVantaa = new Lampomittari();
 
@@ -17,5 +14,9 @@ public class Ohjelma {
 
         paakaupunki.paalle();
         System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+        System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+        System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+
+        System.out.println("mittaukset: " + paakaupunki.mittaukset());
     }
 }
